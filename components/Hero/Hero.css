@@ -1,0 +1,44 @@
+.hero-text {
+  text-shadow: 0px 0px 55px rgba(0, 0, 0, 0.863);
+}
+
+.btn {
+  transform: scale(1);
+  transition: all 0.5s;
+}
+.btn:hover {
+  background: #a10550;
+  color: #fff;
+  transform: scale(0.9);
+}
+
+.listing {
+  position: relative;
+}
+
+.listing2 {
+  width: 20%;
+  height: 30px;
+  background: #f48cb8;
+}
+
+/* Ensure full viewport height */
+.h-screen {
+  height: 100vh;
+}
+
+/* Smooth transitions */
+.btn {
+  transition: all 0.3s ease;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 640px) {
+  .hero-text {
+    padding: 0 1rem;
+  }
+
+  .carousel-arrows {
+    display: none;
+  }
+}

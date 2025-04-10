@@ -1,0 +1,36 @@
+form {
+  box-shadow: -5px -5px 5px rgba(0, 0, 0, 0.288);
+}
+
+/* Better time input styling */
+input[type='time']::-webkit-calendar-picker-indicator {
+  filter: invert(0.5);
+  padding: 4px;
+  cursor: pointer;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+  .shadow-custom {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  input,
+  select {
+    font-size: 14px;
+  }
+}
+
+.social a {
+  transition: transform 0.2s ease;
+}
+
+.social a:hover {
+  transform: translateY(-2px);
+}
+
+a:focus {
+  outline: 2px solid white;
+  outline-offset: 2px;
+  border-radius: 50%;
+}
