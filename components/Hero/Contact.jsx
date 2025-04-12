@@ -3,7 +3,9 @@ import Link from 'next/link';
 
 const Contact = ({}) => {
   return (
-    <section className='flex justify-center w-full  bg-secondary pt-14 pb-28'>
+    <section
+      id='contact'
+      className='flex justify-center w-full  bg-secondary pt-14 pb-28'>
       <div className='grid grid-cols-1 md:grid-cols-2 w-[70%] '>
         <div className='pb-12 md:pb-0'>
           <h3 className='text-[22px] md:text-2xl text-primary pb-2'>

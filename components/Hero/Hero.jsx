@@ -16,7 +16,7 @@ import {
 
 const Hero = ({}) => {
   return (
-    <div className='relative w-full h-screen'>
+    <div id='home' className='scroll-mt-24 relative w-full h-screen'>
       {/* Carousel */}
       <Carousel className='w-full h-full'>
         <CarouselContent>

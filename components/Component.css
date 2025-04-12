@@ -28,9 +28,3 @@ input[type='time']::-webkit-calendar-picker-indicator {
 .social a:hover {
   transform: translateY(-2px);
 }
-
-a:focus {
-  outline: 2px solid white;
-  outline-offset: 2px;
-  border-radius: 50%;
-}
