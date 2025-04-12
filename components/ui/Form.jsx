@@ -5,7 +5,7 @@ const Form = ({}) => {
   return (
     <form
       action='Submit'
-      className='bg-white p-6 md:p-8 lg:p-12 shadow-custom rounded-lg w-full max-w-2xl mx-auto'>
+      className='bg-white p-6 md:p-8 lg:p-12  rounded-lg w-full  max-w-2xl mx-auto'>
       {/* Name & Phone - Stack on mobile */}
       <div className='grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-3 mb-4'>
         <input
@@ -43,6 +43,7 @@ const Form = ({}) => {
           <option value='Locs'>Locs</option>
           <option value='Other'>Other</option>
         </select>
+
         <input
           type='time'
           className='bg-[#f48cb79c] p-2 md:p-3 rounded w-full outline-none border-none text-gray-600'

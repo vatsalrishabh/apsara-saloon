@@ -1,7 +1,3 @@
-form {
-  box-shadow: -5px -5px 5px rgba(0, 0, 0, 0.288);
-}
-
 /* Better time input styling */
 input[type='time']::-webkit-calendar-picker-indicator {
   filter: invert(0.5);
