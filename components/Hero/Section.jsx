@@ -8,7 +8,7 @@ import blogImage from '@/assets/images/card2.png';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import StyleList from '../styleList';
+import StyleList from '../StyleList';
 import braidStyles from '@/lib/braidsStyles';
 
 const Section = ({}) => {
