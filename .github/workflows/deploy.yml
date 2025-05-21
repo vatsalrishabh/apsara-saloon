@@ -3,7 +3,7 @@ name: 🚀 Deploy apusaloon to VPS
 on:
   push:
     branches:
-      - main  # or your deployment branch
+      - main
 
 jobs:
   deploy:
@@ -33,7 +33,7 @@ jobs:
         source: "."
         target: "/home/apusalon/public_html"
 
-    - name: Restart apusaloon with PM2
+    - name: Restart PM2 app
       uses: appleboy/ssh-action@v1.0.3
       with:
         host: ${{ secrets.VPS_HOST }}
