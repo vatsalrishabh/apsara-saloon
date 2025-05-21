@@ -21,8 +21,9 @@ const Footer = ({}) => {
       <div className='w-full px-4 md:px-6 lg:w-[90%] xl:w-[80%] 2xl:w-[70%] mx-auto py-6 md:py-8 text-white'>
         <div className='flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0'>
           {/* Contact Info - Center on mobile */}
-          <p className='text-sm md:text-base text-center md:text-left'>
-            Miami, Florida | 1-802-526-2463
+          <p className='text-sm md:text-base text-center md:text-left w-1/2'>
+           Apsara Unisex Salon 
+#301/43, 1st floor 59th cross 3rd block bhashyam circle Rajajinagar Bangalore 10 | +91 99807 88144
           </p>
 
           {/* Social Icons */}
