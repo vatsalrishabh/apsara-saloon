@@ -1,8 +1,12 @@
+"use client";
+
 import { Poppins, Montserrat } from 'next/font/google'; // Import the Google fonts you want
 import './globals.css';
 import '../lib/fontawesome';
 import NavBar from '@/components/NavBar/NavBar';
 import Footer from '@/components/Footer';
+import { Provider } from "react-redux";
+import { store } from ".././redux/store"
 
 // Configure the fonts
 const poppins = Poppins({
@@ -17,10 +21,10 @@ const montserrat = Montserrat({
   variable: '--font-montserrat',
 });
 
-export const metadata = {
-  title: 'Glam Beauty Store',
-  description: 'We make you more beautiful',
-};
+// export const metadata = {
+//   title: 'Glam Beauty Store',
+//   description: 'We make you more beautiful',
+// };
 
 export default function RootLayout({ children }) {
   return (
@@ -28,9 +32,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${poppins.variable} ${montserrat.variable} font-sans antialiased`}>
         <>
-          <NavBar />
+         <Provider store={store}>
           {children}
-          <Footer />
+        </Provider>
         </>
       </body>
     </html>

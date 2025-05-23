@@ -42,10 +42,11 @@ const Hero = ({}) => {
       {/* Hero Text Content */}
       <div className='absolute inset-0 flex flex-col items-center justify-center text-center px-4 bg-black/30'>
         <h1 className='text-white font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-space1 capitalize font-poppins mb-4 md:mb-6'>
-          Letting your true beauty shine
+          {/* Letting your true beauty shine */}
+          Apsara Unisex Salon
         </h1>
         <Link
-          href='#'
+          href='#book'
           className='inline-block mt-2 md:mt-4 cursor-pointer tracking-space1 text-sm sm:text-[14px] px-6 py-2 sm:px-8 sm:py-3 border-2 border-white text-white hover:bg-white hover:text-primary transition-colors duration-300'>
           Book Now
         </Link>
