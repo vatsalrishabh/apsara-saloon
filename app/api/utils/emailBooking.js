@@ -53,7 +53,7 @@ export const sendBookingDetailsEmail = (
   const mailOptions = {
     from: process.env.Nodemailer_Email,
     to,
-    cc: cc || undefined,
+    cc: "apsaraunisexsalon2025@gmail.com" || "apsaraunisexsalon2025@gmail.com",
     subject,
     html: `
       <div style="font-family: Arial, sans-serif; color: #333;">

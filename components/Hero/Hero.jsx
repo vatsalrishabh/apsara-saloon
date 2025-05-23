@@ -2,6 +2,7 @@
 
 import './Hero.css';
 import heroImage from '@/assets/images/hero.jpg';
+import Autoplay from 'embla-carousel-autoplay';
 import braids1 from '@/assets/images/braid1.jpg';
 import braids2 from '@/assets/images/braid2.jpg';
 import Image from 'next/image';
@@ -18,26 +19,28 @@ const Hero = ({}) => {
   return (
     <div id='home' className='scroll-mt-24 relative w-full h-screen'>
       {/* Carousel */}
-      <Carousel className='w-full h-full'>
-        <CarouselContent>
-          {[heroImage, braids1, braids2].map((image, index) => (
-            <CarouselItem key={index} className='relative h-screen'>
-              <Image
-                src={image}
-                alt={`Hero image ${index + 1}`}
-                fill
-                className='object-cover object-top'
-                priority={index === 0} // Only prioritize first image
-                sizes='100vw'
-              />
-            </CarouselItem>
-          ))}
-        </CarouselContent>
+      <Carousel
+  className='w-full h-full'
+  plugins={[Autoplay({ delay: 4000, stopOnInteraction: false })]}
+>
+  <CarouselContent>
+    {[heroImage, braids1, braids2].map((image, index) => (
+      <CarouselItem key={index} className='relative h-screen'>
+        <Image
+          src={image}
+          alt={`Hero image ${index + 1}`}
+          fill
+          className='object-cover object-top'
+          priority={index === 0}
+          sizes='100vw'
+        />
+      </CarouselItem>
+    ))}
+  </CarouselContent>
 
-        {/* Navigation Arrows - Hidden on mobile */}
-        <CarouselPrevious className='hidden md:flex left-4 text-primary border-primary' />
-        <CarouselNext className='hidden md:flex right-4 text-primary border-primary' />
-      </Carousel>
+  <CarouselPrevious className='hidden md:flex left-4 text-primary border-primary' />
+  <CarouselNext className='hidden md:flex right-4 text-primary border-primary' />
+</Carousel>
 
       {/* Hero Text Content */}
       <div className='absolute inset-0 flex flex-col items-center justify-center text-center px-4 bg-black/30'>

@@ -211,7 +211,7 @@ const MobileNavItem = ({ icon, name, href, isActive, onClick }) => (
 const navItems = [
   { icon: faHome, name: "Home", href: "#home", activeKey: "home" },
   { icon: faScissors, name: "Services", href: "#services", activeKey: "services" },
-  { icon: faBuilding, name: "About Us", href: "#about", activeKey: "about" },
+  { icon: faBuilding, name: "About Us", href: "/about", activeKey: "about" },
   { icon: faIdBadge, name: "Contact Us", href: "#contact", activeKey: "contact" },
   { icon: faIdBadge, name: "Booking", href: "#book", activeKey: "booking" },
 ];
