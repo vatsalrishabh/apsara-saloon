@@ -28,14 +28,18 @@ const PackageCards = () => {
 
       {/* Filters */}
       <div className="flex flex-wrap justify-center gap-4 mb-6">
-        <select
-          onChange={(e) => setCategoryFilter(e.target.value)}
-          className="border p-2 rounded-lg shadow"
-        >
-          <option value="all">All Categories</option>
-          <option value="package">Packages</option>
-          <option value="single">Single</option>
-        </select>
+     <select
+  onChange={(e) => setCategoryFilter(e.target.value)}
+  className="border p-2 rounded-lg shadow"
+>
+  <option value="all">All Categories</option>
+  <option value="Hair Cut">Hair Cut</option>
+  <option value="Hair Spa">Hair Spa</option>
+  <option value="Hair Colour">Hair Colour</option>
+  <option value="Hair Styling">Hair Styling</option>
+  <option value="Hair Treatment">Hair Treatment</option>
+</select>
+
 
         <select
           onChange={(e) => setPriceFilter(Number(e.target.value))}

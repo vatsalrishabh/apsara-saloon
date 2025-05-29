@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import LRFButton from "../reduxLogin/LRFButton";
 import LogoutAvtar from "../reduxLogin/LogoutAvtar";
 
@@ -33,16 +33,25 @@ const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("home");
   const pathname = usePathname();
+  const router = useRouter();
   const [loggedInUser, setLoggedInuser] = useState(null);
 
-  // Get user details on load
   useEffect(() => {
     const userDetails = JSON.parse(localStorage.getItem("userDetails"));
     if (userDetails) setLoggedInuser(userDetails);
   }, []);
 
-  // Set active link and handle hash scroll on load
+  // Scroll to hash if it exists (used after redirecting to homepage)
   useEffect(() => {
+    if (pathname === "/") {
+      const scrollTarget = sessionStorage.getItem("scrollTarget");
+      if (scrollTarget) {
+        sessionStorage.removeItem("scrollTarget");
+        smoothScroll(scrollTarget);
+        setActiveLink(scrollTarget.replace("#", ""));
+      }
+    }
+
     if (pathname === "/") {
       setActiveLink("home");
     } else {
@@ -50,20 +59,25 @@ const NavBar = () => {
       if (currentPath) setActiveLink(currentPath);
     }
 
-    if (window.location.hash) {
+    if (window.location.hash && pathname === "/") {
       smoothScroll(window.location.hash);
     }
   }, [pathname]);
 
   const handleLinkClick = (href, activeKey) => {
-    if (href.startsWith("#")) {
-      smoothScroll(href);
-      setActiveLink(activeKey);
-    } else if (href === "/") {
-      smoothScroll("#top");
-      setActiveLink("home");
-    }
     setIsOpen(false);
+    setActiveLink(activeKey);
+
+    if (href.startsWith("#")) {
+      if (pathname !== "/") {
+        sessionStorage.setItem("scrollTarget", href);
+        router.push("/");
+      } else {
+        smoothScroll(href);
+      }
+    } else {
+      router.push(href);
+    }
   };
 
   const handleLogoClick = (e) => {
@@ -73,7 +87,6 @@ const NavBar = () => {
     window.history.pushState(null, "", "/");
   };
 
-  // Callback to update login status after logout
   const handleLogout = () => {
     setLoggedInuser(null);
   };
@@ -123,7 +136,11 @@ const NavBar = () => {
           {loggedInUser ? (
             <LogoutAvtar onLogout={handleLogout} />
           ) : (
-            <LRFButton displayLogin={true} displayRegister={false} displayForgot={false} />
+            <LRFButton
+              displayLogin={true}
+              displayRegister={false}
+              displayForgot={false}
+            />
           )}
         </div>
       </div>
@@ -145,7 +162,11 @@ const NavBar = () => {
             {loggedInUser ? (
               <LogoutAvtar onLogout={handleLogout} />
             ) : (
-              <LRFButton displayLogin={true} displayRegister={false} displayForgot={false} />
+              <LRFButton
+                displayLogin={true}
+                displayRegister={false}
+                displayForgot={false}
+              />
             )}
           </div>
         </div>
