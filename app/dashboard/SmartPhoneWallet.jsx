@@ -28,7 +28,7 @@ const SmartPhoneWallet = () => {
 
   return (
     <div className="w-full h-auto p-4 bg-pink-50 animate__animated animate__fadeInUp rounded-xl shadow-md text-primary">
-      {/* Header */}
+      {/* Header jj */}
       <div className="flex justify-between items-center mb-4">
         <Link href="/">
         <FontAwesomeIcon icon={faArrowLeft} className="text-pink-500 text-xl" />
