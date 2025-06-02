@@ -10,7 +10,7 @@ import Footer from '@/components/Footer';
 
 const Homepage = ({}) => {
   return (
-    <div className='w-full min-h-screen'>
+    <div className='w-full '>
       <NavBar/>
       <Hero />
       <Section />

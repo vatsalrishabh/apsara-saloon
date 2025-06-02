@@ -3,10 +3,10 @@
 import { Poppins, Montserrat } from 'next/font/google'; // Import the Google fonts you want
 import './globals.css';
 import '../lib/fontawesome';
-import NavBar from '@/components/NavBar/NavBar';
-import Footer from '@/components/Footer';
 import { Provider } from "react-redux";
 import { store } from ".././redux/store"
+import 'animate.css';
+
 
 // Configure the fonts
 const poppins = Poppins({

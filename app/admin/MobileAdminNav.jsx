@@ -21,7 +21,7 @@ const MobileAdminNav = () => {
   };
 
   return (
-    <div className="lg:hidden fixed bottom-0 left-0 w-full bg-gray-900 text-white p-2 flex justify-around items-center shadow-md z-10">
+    <div className="hidden sm:hidden fixed bottom-0 left-0 w-full bg-gray-900 text-white p-2  justify-around items-center shadow-md z-10">
       <Link href="/admin/manageorder" className="flex flex-col items-center text-xs hover:text-gray-300 transition">
         <ListAltIcon />
         <span>Orders</span>

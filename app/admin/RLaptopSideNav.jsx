@@ -27,7 +27,7 @@ const RLaptopSideNav = () => {
   // const products = useSelector((state) => state.allProducts.products);
   // console.log(products);
   return (
-    <div className="lg:w-[83%] w-full absolute right-0 h-[100vh] bg-slate-200 p-6">
+    <div className="lg:w-[83%] absolute right-0 h-[100vh] bg-slate-200 p-6">
       {/* Grid Layout: 3 Columns on Large Screens, 1 Column on Small Screens */}
       <div className="p-4">
       <AdminBreadCrumbs links={breadcrumbLinks} name="Admin Dashboard" />

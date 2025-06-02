@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
-import { useForm } from "react-hook-form";
+import { useForm , Controller} from "react-hook-form";
+import CreatableSelect from "react-select/creatable";
 import CloseIcon from '@mui/icons-material/Close';
+import Image from "next/image";
 import axios from "axios";
 
 const AddItems = ({ isOpen, onClose }) => {
-  const { register, handleSubmit, reset, setValue, watch } = useForm();
+  const { register, handleSubmit, reset, setValue, watch, control } = useForm();
   const [previewImages, setPreviewImages] = useState({});
   const [discount, setDiscount] = useState(0);
 
@@ -42,17 +44,25 @@ const AddItems = ({ isOpen, onClose }) => {
   const onSubmit = async (data) => {
     const formData = new FormData();
     Object.keys(data).forEach((key) => {
-      if (data[key] instanceof File) {
+      if (key === "stock") {
+        const stockObj = data[key];
+        Object.keys(stockObj).forEach((size) => {
+          formData.append(`stock[${size}]`, stockObj[size]);
+        });
+      } else if (data[key] instanceof File) {
         formData.append(key, data[key], `${Date.now()}-${data[key].name}`);
       } else {
         formData.append(key, data[key]);
       }
     });
+    
 
     try {
+      console.log(formData.stock);
       await axios.post("/api/admin/addProduct", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
+      console.log(formData.stock+"THE STOCK");
       alert("Product added successfully!");
       reset();
       setPreviewImages({});
@@ -88,9 +98,35 @@ const AddItems = ({ isOpen, onClose }) => {
             <option value="readymadekurtas">Readymade Kurtas</option>
             <option value="readymadedress">Readymade Dress</option>
             <option value="westerndress">Western Dress</option>
+            <option value="kidswear">Kids Wear</option> 
+            <option value="gowns">Gowns</option>       
+            <option value="readymadeblouses">Readymade Blouses</option>
+            <option value="sarees">Sarees</option>    
           </select>
 
-          <input {...register("color")} placeholder="Color" className="border p-2 rounded" />
+          {/* <input {...register("color")} placeholder="Color" className="border p-2 rounded" /> */}
+
+<input type="hidden" {...register("color")} />
+ <Controller
+  name="colors"
+  control={control}
+  defaultValue={[]} // Start with empty array
+  render={({ field }) => (
+    <CreatableSelect
+      {...field}
+      isMulti
+      placeholder="Enter colors"
+      className="react-select"
+      classNamePrefix="select"
+      onChange={(selectedOptions) => {
+        field.onChange(selectedOptions); // For the select's internal state
+        const selectedValues = selectedOptions?.map((opt) => opt.value || opt.label).join(",") || "";
+        setValue("color", selectedValues); // This updates the actual 'color' field as a string
+      }}
+    />
+  )}
+/>
+
           <input {...register("print")} placeholder="Print Type" className="border p-2 rounded" />
           <input {...register("neck")} placeholder="Neck Style" className="border p-2 rounded" />
           <input {...register("sleeves")} placeholder="Sleeve Type" className="border p-2 rounded" />
@@ -119,7 +155,13 @@ const AddItems = ({ isOpen, onClose }) => {
             <div key={num} className="flex flex-col items-center">
               <label className="text-sm font-semibold">Image {num}</label>
               <input type="file" accept="image/*" onChange={(e) => handleFileChange(e, `image${num}`)} className="border p-2 rounded" />
-              {previewImages[`image${num}`] && <img src={previewImages[`image${num}`]} alt={`Preview ${num}`} className="w-20 h-20 object-cover mt-2" />}
+              {previewImages[`image${num}`] && <Image
+  src={previewImages[`image${num}`]}
+  alt={`Preview ${num}`}
+  width={100}
+  height={100}
+  className="object-cover rounded"
+/>}
             </div>
           ))}
 

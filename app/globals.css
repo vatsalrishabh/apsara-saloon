@@ -5,12 +5,6 @@
 @tailwind utilities;
 
 /* Add any custom global styles below */
-body {
-  font-family: 'Inter', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: var(--color-background);
-  color: var(--color-foreground);
-}
+
 
 /* Add your custom CSS rules here */
