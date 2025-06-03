@@ -3,8 +3,11 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes, faQrcode, faIndianRupeeSign } from "@fortawesome/free-solid-svg-icons";
+import { QRCode } from 'qrcode.react';
+import qr from "@/public/images/qrcode.png";
 
 const QRCodeModal = ({ onClose }) => {
+  const upiUrl = "upi://pay?pa=vatsal123@okicici&pn=Vatsal%20Pandey&am=500&cu=INR";
   return (
     <motion.div
       className="fixed inset-0 bg-white bg-opacity-40 flex justify-center items-center z-50"
@@ -44,12 +47,13 @@ const QRCodeModal = ({ onClose }) => {
           transition={{ delay: 0.2 }}
         >
           <Image
-            src="/images/qr-placeholder.png" // Replace with actual path
+            src={qr} // Replace with actual path
             width={200}
             height={200}
             alt="QR Code"
             className="rounded-xl shadow-md"
           />
+          {/* <QRCode value={upiUrl} size={200} /> */}
         </motion.div>
 
         {/* Price */}
@@ -60,7 +64,7 @@ const QRCodeModal = ({ onClose }) => {
           transition={{ delay: 0.3 }}
         >
           <FontAwesomeIcon icon={faIndianRupeeSign} className="text-neutral-800 text-xl" />
-          999 / month
+          10,000 / Card
         </motion.p>
 
         {/* Close Button */}

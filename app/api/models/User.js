@@ -21,6 +21,7 @@ const userSchema = new Schema({
     dpUrl: String, // Profile picture URL
     addresses: [addressSchema], // Array of addresses
     mobileNumber: { type: String, required: true },
+    memberShip:{type:String},
     typeOfUser: { 
         type: String, 
         enum: ["Customer", "Admin"], // Restrict roles to either Customer or Admin

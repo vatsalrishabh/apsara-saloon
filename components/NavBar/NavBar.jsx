@@ -30,11 +30,12 @@ const smoothScroll = (target) => {
 };
 
 const NavBar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  
   const [activeLink, setActiveLink] = useState("home");
   const pathname = usePathname();
   const router = useRouter();
   const [loggedInUser, setLoggedInuser] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const userDetails = JSON.parse(localStorage.getItem("userDetails"));
@@ -235,6 +236,7 @@ const navItems = [
   { icon: faBuilding, name: "About Us", href: "/about", activeKey: "about" },
   { icon: faIdBadge, name: "Contact Us", href: "#contact", activeKey: "contact" },
   { icon: faIdBadge, name: "Booking", href: "#book", activeKey: "booking" },
+   { icon: faIdBadge, name: "Buy Membership", href: "dashboard", activeKey: "dashboard" },
 ];
 
 export default NavBar;

@@ -7,18 +7,13 @@ import AnNavbar from "./AnNavbar";
 import Link from "next/link";
 
 const Navbar = () => {
-  const [loggedInUser, setLoggedInUser] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
   const [activeTab, setActiveTab] = useState("Home");
   const [scrollNum, setScroll] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScroll(window.scrollY > 55);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const [isLoading, setIsLoading] = useState(true);
+  const [loggedInUser, setLoggedInUser] = useState(null);
+
+
 
   useEffect(() => {
     const loadUser = async () => {
@@ -44,6 +39,15 @@ const Navbar = () => {
   if (isLoading) {
     return <div className="flex justify-center items-center h-screen">Loading...</div>;
   }
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScroll(window.scrollY > 55);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const tabs = [
     { name: "होम", path: "/home" },
     { name: "हमारे बारे में", path: "/about" },

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import PaymentDetails from "./PaymentDetails";
 import QRCodeModal from "./QRCodeModal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import {
   faArrowLeft,
   faSearch,
@@ -14,7 +15,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 
-const SmartPhoneWallet = () => {
+const SmartPhoneWallet = ({loggedInUser}) => {
   const [showPaymentModal, setShowPaymentModal] = useState(false);
   const [showQRModal, setShowQRModal] = useState(false);
 
@@ -33,7 +34,7 @@ const SmartPhoneWallet = () => {
         <Link href="/">
         <FontAwesomeIcon icon={faArrowLeft} className="text-pink-500 text-xl" />
         </Link>
-        <div className="text-lg font-semibold">Hi, Riya</div>
+        <div className="text-lg font-semibold">Hi, {loggedInUser?.name}</div>
         <FontAwesomeIcon icon={faSearch} className="text-pink-500 text-xl" />
       </div>
 
@@ -42,7 +43,7 @@ const SmartPhoneWallet = () => {
         <div className="w-10 h-10 rounded-full bg-pink-200" />
         <div className="text-right">
           <p className="text-sm text-gray-500">Your Balance</p>
-          <p className="text-lg font-bold text-pink-600">₹23,000</p>
+          <p className="text-lg font-bold text-pink-600">{}</p>
         </div>
       </div>
 

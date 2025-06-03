@@ -36,13 +36,13 @@ export const adminChPass = (to, otp, subject) => {
         text: `${subject}: ${otp}`,
         html: `
             <div style="font-family: 'Arial', sans-serif; line-height: 1.6; color: #333;">
-                <h2 style="color: #E91E63; text-align: center;">Welcome to StyleDivaa!</h2>
+                <h2 style="color: #E91E63; text-align: center;">Welcome to Apsara Unisex Salon!</h2>
                 <p style="font-size: 16px;">Dear Fashion Lover,</p>
                 <p style="font-size: 16px;">To change Admin Password, use the One-Time Password (OTP) below:</p>
                 <div style="text-align: center; margin: 20px 0;">
                     <span style="font-size: 24px; font-weight: bold;">Your OTP: ${otp}</span>
                 </div>
-                <p style="color: #777; font-size: 14px;">Best regards,<br/>The StyleDivaa Team</p>
+                <p style="color: #777; font-size: 14px;">Best regards,<br/>The Apsara Unisex Salon Team</p>
             </div>
         `,
     };
