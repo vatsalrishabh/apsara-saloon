@@ -1,7 +1,8 @@
 import React from "react";
 import LeftLaptoSideNav from "../LeftLaptoSideNav";
 // import MobileAdminNav from "../MobileAdminNav";
-// import RightManageOrder from "./RightManageOrder";
+import RightMembersHistory from "./RightMembersHistory";
+
 
 
 const page = () => {
@@ -13,9 +14,8 @@ const page = () => {
 
       <div className="flex">
         <LeftLaptoSideNav />{" "}{/* left side admin panel which changes right side component */}
+<RightMembersHistory/>
 
-{/* Below add componet with lg:w-[83%]  w-full */}
-      {/* <RightManageOrder/> */}
       </div>
     </div>
   );

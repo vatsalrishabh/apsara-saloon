@@ -6,6 +6,7 @@ import {
   faPinterest,
   faReddit,
   faTiktok,
+  faThreads,
 } from '@fortawesome/free-brands-svg-icons';
 import { faCopy, faCopyright } from '@fortawesome/free-regular-svg-icons';
 import { faX } from '@fortawesome/free-solid-svg-icons';
@@ -23,7 +24,7 @@ const Footer = ({}) => {
           <p className='text-sm md:text-base text-center md:text-left w-1/2'>
             Apsara Unisex Salon<br />
             #301/43, 1st floor 59th cross 3rd block Bhashyam Circle, Rajajinagar, Bangalore 10<br />
-            +91 99807 88144
+            +91 9916988766 , 9972683097
           </p>
 
           {/* Social Icons */}
@@ -37,7 +38,7 @@ const Footer = ({}) => {
               <FontAwesomeIcon icon={faInstagram} />
             </a>
             <a
-              href='https://www.facebook.com'
+              href='https://www.facebook.com/share/1AhZwQ1X2B/'
               target='_blank'
               rel='noopener noreferrer'
               aria-label='Facebook'
@@ -50,7 +51,7 @@ const Footer = ({}) => {
               rel='noopener noreferrer'
               aria-label='Threads'
               className='hover:text-white transition-colors'>
-              <FontAwesomeIcon icon={faX} />
+              <FontAwesomeIcon icon={faThreads} />
             </a>
             {/* <a
               href='#'

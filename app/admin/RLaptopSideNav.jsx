@@ -13,10 +13,8 @@ import AdminBreadCrumbs from "../components/Admin/AdminBreadCrumbs";
 // Data Array for Cards
 
 const cardData = [
-  { heading: "Manage Orders", number: 1250, Icon: ListAltIcon, bgColor: "#4A90E2", link:"admin/manageorder" },
-  { heading: "Add Items", number: 320, Icon: AddCircleOutlineIcon, bgColor: "#16a34a", link:"admin/additems" },
-  { heading: "Payments", number: "₹35,420", Icon: PaymentIcon, bgColor: "#d97706", link:"admin/payments" },
-  { heading: "Gallery", number: 75, Icon: PhotoLibraryIcon, bgColor: "#9333ea", link:"admin/gallery" },
+  { heading: "Manage History", number: 1250, Icon: ListAltIcon, bgColor: "#4A90E2", link:"/admin/membersHistory" },
+
 ];
 
 const breadcrumbLinks = [
@@ -27,7 +25,7 @@ const RLaptopSideNav = () => {
   // const products = useSelector((state) => state.allProducts.products);
   // console.log(products);
   return (
-    <div className="lg:w-[83%] absolute right-0 h-[100vh] bg-slate-200 p-6">
+    <div className="w-full  right-0 h-[100vh] bg-red-700 p-6">
       {/* Grid Layout: 3 Columns on Large Screens, 1 Column on Small Screens */}
       <div className="p-4">
       <AdminBreadCrumbs links={breadcrumbLinks} name="Admin Dashboard" />

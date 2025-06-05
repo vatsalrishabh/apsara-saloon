@@ -21,6 +21,10 @@ const registerSchema = z.object({
   email: z.string().email('Invalid email address'),
   phone: z.string().length(10, 'Phone number must be exactly 10 digits').regex(/^\d+$/, 'Phone must contain only digits'),
   password: z.string().min(6, 'Password must be at least 6 characters'),
+  gender: z.string().min(1, 'Gender is required'),
+  state: z.string().min(1, 'State is required'),
+  city: z.string().min(1, 'City is required'),
+  streetAddress: z.string().min(1, 'Street Address is required'),
 });
 
 const RegisterModal = () => {
@@ -131,6 +135,42 @@ const RegisterModal = () => {
             </span>
             {errors.password && <p className="text-red-600 text-sm">{errors.password.message}</p>}
           </div>
+
+          <select
+            className={`bg-[#f48cb79c] p-3 rounded w-full outline-none placeholder:text-gray-600 ${errors.gender ? 'border border-red-500' : ''}`}
+            {...register('gender')}
+            defaultValue=""
+          >
+            <option value="" disabled>Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+          {errors.gender && <p className="text-red-600 text-sm">{errors.gender.message}</p>}
+
+          <input
+            type="text"
+            placeholder="State"
+            className={`bg-[#f48cb79c] p-3 rounded w-full outline-none placeholder:text-gray-600 ${errors.state ? 'border border-red-500' : ''}`}
+            {...register('state')}
+          />
+          {errors.state && <p className="text-red-600 text-sm">{errors.state.message}</p>}
+
+          <input
+            type="text"
+            placeholder="City"
+            className={`bg-[#f48cb79c] p-3 rounded w-full outline-none placeholder:text-gray-600 ${errors.city ? 'border border-red-500' : ''}`}
+            {...register('city')}
+          />
+          {errors.city && <p className="text-red-600 text-sm">{errors.city.message}</p>}
+
+          <input
+            type="text"
+            placeholder="Street Address"
+            className={`bg-[#f48cb79c] p-3 rounded w-full outline-none placeholder:text-gray-600 ${errors.streetAddress ? 'border border-red-500' : ''}`}
+            {...register('streetAddress')}
+          />
+          {errors.streetAddress && <p className="text-red-600 text-sm">{errors.streetAddress.message}</p>}
 
           <button
             type="submit"

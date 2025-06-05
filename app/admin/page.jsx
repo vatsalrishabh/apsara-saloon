@@ -53,9 +53,10 @@ const Page = () => {
       {isAuthenticated ? (
         <>
           <MobileAdminNav />
-          <div className="flex bg-green-500">
+          <div className="flex bg-green-500 w-full ">
             <LeftLaptoSideNav />
             <RLaptopSideNav />
+
           </div>
         </>
       ) : (

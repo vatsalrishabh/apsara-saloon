@@ -24,7 +24,7 @@ const LeftLaptoSideNav = () => {
   ];
 
   return (
-    <div className="lg:block w-64 h-screen bg-gray-900 text-white p-4 fixed left-0 top-0">
+    <div className="lg:block w-64 h-screen bg-gray-900 text-white p-4  left-0 top-0">
       <h2 className="text-xl font-semibold mb-6 text-center">Admin Panel</h2>
 
       <nav>
